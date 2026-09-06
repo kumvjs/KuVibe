@@ -1,0 +1,6 @@
+facts:
+  language: java
+  framework: spring-boot
+  build: maven
+must_not:
+  - recommend_new_stack

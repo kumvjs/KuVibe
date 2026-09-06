@@ -1,0 +1,8 @@
+level: 0
+steps:
+  - analyze
+  - implement
+  - verify
+engineering_note: not_required
+must_not:
+  - create_multi_agent_workflow

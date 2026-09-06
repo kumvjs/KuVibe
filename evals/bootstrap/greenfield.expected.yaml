@@ -1,0 +1,9 @@
+mode: bootstrap
+must:
+  - clarify_material_business_scope
+  - research_three_stack_options
+  - wait_for_stack_selection
+  - persist_established_context_after_selection
+must_not:
+  - implement_immediately
+  - require_kuvibe_cli

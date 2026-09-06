@@ -1,0 +1,5 @@
+must:
+  - consolidate_active_artifacts
+  - write_single_timestamped_flat_note
+  - remove_completed_active_directory
+filename_pattern: YYYYMMDD-HHmm-TYPE-SLUG.md

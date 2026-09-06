@@ -1,0 +1,5 @@
+capabilities:
+  - backend-design
+  - testing
+must_not_include_capabilities:
+  - ui-design

@@ -1,0 +1,8 @@
+must:
+  - inspect_order_docs
+  - inspect_payment_docs
+  - ask_only_unresolved_material_questions
+  - define_acceptance_before_implementation
+must_not:
+  - ask_questions_already_answered_by_context
+  - implement_raw_request_immediately

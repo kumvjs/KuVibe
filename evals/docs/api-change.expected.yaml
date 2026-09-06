@@ -1,0 +1,6 @@
+documentation_impact:
+  api: true
+  business_rules: true
+must:
+  - update_current_truth_docs
+  - record_documentation_in_engineering_note

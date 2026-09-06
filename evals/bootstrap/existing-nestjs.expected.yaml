@@ -1,0 +1,8 @@
+mode: bootstrap_existing
+must:
+  - inspect_package_manifest
+  - detect_typescript_node_nestjs
+  - preserve_existing_stack
+must_not:
+  - recommend_replacement_stack
+  - scan_entire_source_tree

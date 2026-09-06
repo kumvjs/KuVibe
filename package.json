@@ -1,0 +1,22 @@
+{
+  "name": "kuvibe",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A file-first software engineering protocol for Vibe Coding.",
+  "type": "module",
+  "packageManager": "pnpm@11.6.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "pnpm --filter @kuvibe/cli build",
+    "check": "pnpm --filter @kuvibe/cli check",
+    "test": "pnpm --filter @kuvibe/cli test",
+    "docs:dev": "vitepress docs",
+    "docs:build": "vitepress build docs",
+    "validate": "pnpm --filter @kuvibe/cli start validate ."
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}

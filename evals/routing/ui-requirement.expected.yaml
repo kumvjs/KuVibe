@@ -1,0 +1,7 @@
+minimum_level: 1
+capabilities:
+  - ui-design
+  - acceptance
+  - testing
+documentation:
+  ui: true

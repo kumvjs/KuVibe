@@ -1,0 +1,7 @@
+must:
+  - inspect_cmake_and_source_metadata
+  - generate_project_context
+  - record_detection_evidence
+must_not:
+  - block_on_tool_installation
+  - require_nodejs
