@@ -7,11 +7,11 @@ hero:
   tagline: One Markdown file. Everything you need to begin your Vibe Coding journey.
   actions:
     - theme: brand
-      text: Understand the protocol
-      link: /product/philosophy
+      text: Quick Start
+      link: /en/getting-started
     - theme: alt
       text: Tooling reference
-      link: /modules/tooling/
+      link: /en/modules/tooling/
 ---
 
 **Ku is Cool.** Ku means “Cool”; Vibe comes from Vibe Coding.
