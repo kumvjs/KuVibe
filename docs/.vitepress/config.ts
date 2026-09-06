@@ -49,7 +49,9 @@ const chineseThemeConfig = {
       ]
     }
   ],
-  socialLinks: [],
+  socialLinks: [
+    { icon: 'github', link: 'https://github.com/kumvjs/KuVibe' }
+  ],
   outline: { label: '本页目录' },
   docFooter: {
     prev: '上一页',
@@ -119,7 +121,9 @@ const englishThemeConfig = {
       ]
     }
   ],
-  socialLinks: []
+  socialLinks: [
+    { icon: 'github', link: 'https://github.com/kumvjs/KuVibe' }
+  ]
 }
 
 export default defineConfig({

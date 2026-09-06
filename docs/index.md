@@ -12,6 +12,9 @@ hero:
     - theme: alt
       text: Tooling reference
       link: /en/modules/tooling/
+    - theme: alt
+      text: GitHub project
+      link: https://github.com/kumvjs/KuVibe
 ---
 
 **Ku is Cool.** Ku means “Cool”; Vibe comes from Vibe Coding.

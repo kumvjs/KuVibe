@@ -12,6 +12,9 @@ hero:
     - theme: alt
       text: 工具参考
       link: /modules/tooling/
+    - theme: alt
+      text: GitHub 项目
+      link: https://github.com/kumvjs/KuVibe
 ---
 
 **Ku is Cool.** Ku 表达“酷 / Cool”，Vibe 来自 Vibe Coding。
