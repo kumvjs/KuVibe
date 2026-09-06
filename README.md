@@ -1,8 +1,12 @@
 # KuVibe
 
-> **Ku is Cool.**
+[English](./README.md) | [简体中文](./README.zh.md)
 
-Ku 表达“酷 / Cool”，Vibe 来自 Vibe Coding。
+> **Ku is Cool.**
+>
+> One Markdown file is all you need to start your Vibe Coding journey. Everything is ready—let's begin, my young genius!
+
+Ku means “Cool”; Vibe comes from Vibe Coding.
 
 KuVibe is a file-first software engineering protocol for Vibe Coding. Users describe what they want; coding agents handle project context, focused clarification, engineering analysis, acceptance, implementation planning, verification, living documentation, and durable engineering memory.
 
