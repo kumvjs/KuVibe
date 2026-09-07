@@ -32,5 +32,9 @@ your-project/
 生成的 `AGENTS.md` 会引导后续工作自动使用项目上下文、验收标准、验证和工程记忆。你只需继续描述需求。
 
 ::: tip 如何确认初始化完成？
-项目根目录中应当出现 `AGENTS.md`、`.agents/project.md` 和 `.agents/context/stack.md`。它们记录了后续工作需要的长期上下文。
+项目根目录中应当出现 `AGENTS.md`、`.agents/kuvibe.yaml`、`.agents/project.md` 和 `.agents/context/stack.md`。它们记录了版本状态和后续工作需要的长期上下文。
 :::
+
+## 升级已经使用 KuVibe 的项目
+
+用新版替换根目录中的 `kuVibe.md`，再让智能体读取它即可。旧项目即使没有 `.agents/kuvibe.yaml`，也会根据已有 Harness 进入保守接管，不会重新初始化或覆盖项目知识。结构迁移按 Schema 逐步执行；同一 Schema 内只刷新受管内容。详见[版本与安全升级](./product/versioning.md)。

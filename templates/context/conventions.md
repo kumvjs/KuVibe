@@ -1,3 +1,10 @@
+<!--
+kuvibe:
+  template: conventions-context
+  revision: 1
+  ownership: mixed
+-->
+
 # Conventions
 
 ## Naming

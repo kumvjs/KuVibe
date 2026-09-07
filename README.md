@@ -20,11 +20,14 @@ Read @kuVibe.md and initialize this project.
 
 After bootstrap, describe requirements normally. The generated `AGENTS.md` routes future work through the established context and workflow. No KuVibe installation or CLI knowledge is required.
 
+For a project already using an older KuVibe, replace only `kuVibe.md`. The agent recognizes the legacy harness, migrates it by Project Schema, and preserves project context, business documentation, custom rules, and historical notes instead of reinitializing a project that lacks version state. See [Versions and Safe Upgrades](./docs/product/versioning.md).
+
 ## Repository
 
 - `kuVibe.md`: reusable agent bootstrap specification and primary product
 - `.agents/`: KuVibe's own project context, workflow, and engineering memory
 - `templates/`: reusable output templates
+- `migrations/`: consecutive, validated Project Schema migration specifications
 - `evals/`: agent-behavior evaluation cases
 - `packages/cli/`: optional deterministic repository tools
 - `docs/`: VitePress documentation source

@@ -1,3 +1,10 @@
+<!--
+kuvibe:
+  template: conventions-context
+  revision: 1
+  ownership: mixed
+-->
+
 # Conventions
 
 ## Naming and Directories
@@ -28,3 +35,9 @@
 ## Documentation
 
 Use relative Markdown links. Describe current behavior in docs and rationale/history in notes. Do not create empty module pages.
+
+## KuVibe Versions
+
+- Use SemVer for protocol releases, positive integers for project schema and template revisions.
+- Add one consecutive migration specification whenever schema changes.
+- Update version state only after validation; preserve project-owned content by default.

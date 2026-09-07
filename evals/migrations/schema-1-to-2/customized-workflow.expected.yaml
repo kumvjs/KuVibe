@@ -1,0 +1,10 @@
+mode: legacy_adoption
+must:
+  - classify_uncertain_workflow_as_mixed
+  - preserve_team_deployment_checks
+  - merge_current_workflow_requirements
+  - validate_before_recording_schema
+must_not:
+  - replace_customized_workflow
+  - assume_revision_proves_unmodified_content
+  - delete_custom_content

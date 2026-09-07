@@ -1,0 +1,11 @@
+kuvibe:
+  version: 0.2.0
+  schema: 2
+templates:
+  agents-router: 1
+  requirement-workflow: 1
+  development-workflow: 1
+  review-workflow: 1
+  documentation-workflow: 1
+initializedAt: <ISO-8601 timestamp with offset>
+lastUpdatedAt: <ISO-8601 timestamp with offset>

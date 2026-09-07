@@ -1,5 +1,12 @@
 # KuVibe — Coding Agent Software Engineering Bootstrap Specification
 
+<!--
+kuvibe:
+  version: 0.2.0
+  projectSchema: 2
+  minimumSupportedProjectSchema: 1
+-->
+
 ## 1. KuVibe Identity
 
 **Ku is Cool.** Ku 表达“酷 / Cool”，Vibe 来自 Vibe Coding。KuVibe is a file-first software engineering protocol: the user states intent, while the coding agent supplies context retrieval, focused clarification, engineering analysis, planning, verification, living documentation, and durable engineering memory.
@@ -24,12 +31,84 @@ This file is the user interface. Never require the user to install a CLI, learn 
 6. Current truth belongs in docs; historical decisions belong in timestamped notes.
 7. Optimize every artifact for the next agent inheriting the repository.
 
-## 4. Bootstrap Detection
+## 4. Version and Bootstrap Detection
 
-Check for `AGENTS.md`, `.agents/project.md`, and `.agents/context/stack.md`.
+Read this file's `kuvibe` metadata, then inspect `.agents/kuvibe.yaml` before normal requirement work. Also check the legacy harness markers `AGENTS.md`, `.agents/project.md`, and `.agents/context/stack.md`.
 
-- If the project context is absent, enter Bootstrap Mode.
-- If it exists, enter Maintenance Mode and do not regenerate it wholesale.
+- No state file and no harness markers: **Bootstrap**.
+- No state file but any harness marker exists: **Legacy Adoption**. Never infer a fresh project merely because version metadata is absent.
+- Invalid or internally inconsistent state: stop version writes, report the evidence, and preserve the existing harness.
+- Recorded schema is below `minimumSupportedProjectSchema`: **Unsupported Migration**; obtain the missing official consecutive migration specifications before changing files.
+- Recorded schema is below `projectSchema`: **Migration**.
+- Schemas match and recorded release is older: **Refresh**.
+- Schema and release match: **Maintenance**.
+- Recorded schema or release is newer: **Unsupported Downgrade**; do not rewrite state or templates with this older protocol.
+
+Schema comparison decides structural migration. SemVer describes the protocol release and never implies migration by itself. Compare SemVer numerically, not lexically.
+
+### 4.1 Project Version State
+
+After a successful bootstrap or upgrade, maintain `.agents/kuvibe.yaml` separately from project knowledge:
+
+```yaml
+kuvibe:
+  version: 0.2.0
+  schema: 2
+templates:
+  agents-router: 1
+  requirement-workflow: 1
+  development-workflow: 1
+  review-workflow: 1
+  documentation-workflow: 1
+initializedAt: <ISO-8601 timestamp with offset>
+lastUpdatedAt: <ISO-8601 timestamp with offset>
+```
+
+Preserve `initializedAt` on upgrades. Update `lastUpdatedAt`, release, schema, and applied template revisions only after relevant validation succeeds. Metadata is system state, not a substitute for Git history or project documentation.
+
+### 4.2 Ownership and Modification Safety
+
+Classify before changing an existing artifact:
+
+- **KuVibe-owned**: unmodified workflow templates and managed blocks may be refreshed automatically.
+- **Mixed**: context files and customized managed artifacts may only be merged; preserve project-specific content.
+- **Project-owned**: `.agents/project.md`, `.agents/notes/**`, and real project documentation must not be regenerated, overwritten, or deleted by an upgrade.
+
+A template revision only identifies a refresh candidate; it does not prove the file is unmodified. Use managed-block boundaries, metadata, Git evidence, and content comparison. If provenance or modification status is uncertain, treat the artifact as mixed.
+
+For deletion, prefer merge, then deprecation, then deletion. Delete only when the artifact is KuVibe-owned, contains no project customization, its useful content has moved, and the migration specification explicitly permits deletion. Otherwise retain it with a deprecation notice.
+
+### 4.3 Managed Metadata and Blocks
+
+Managed Markdown templates carry hidden metadata with `template`, integer `revision`, and `ownership`. Mixed files such as `AGENTS.md` use bounded regions:
+
+```text
+<!-- kuvibe:managed:start template=agents-router revision=1 -->
+...managed routing instructions...
+<!-- kuvibe:managed:end -->
+```
+
+Refresh only that region. Content outside it is project-owned.
+
+### 4.4 Refresh
+
+When schemas match and this release is newer, inspect template revisions and refresh only affected KuVibe-owned content or managed blocks. Merge customized/unknown content. Do not run structural migrations, rewrite project knowledge, or touch historical notes. Validate references, then update state and record a note when the refresh materially changes behavior.
+
+### 4.5 Migration
+
+Run explicit, consecutive schema migrations only: `1 -> 2 -> 3`, never an invented `1 -> 3`. Before editing, inspect relevant Git status/diffs without cleaning or resetting the worktree. For each step:
+
+1. Load that transition's specification from this file's supported migration index; repository maintainers use the expanded canonical copy under `migrations/`.
+2. Inventory affected files and ownership, and record preservation requirements.
+3. Apply the smallest additive or merge-safe changes.
+4. Validate the transition, including retained project docs and notes.
+5. Stop on failure and report completed and pending steps; do not advance schema state.
+
+After all steps pass, write one timestamped migration note and then update `.agents/kuvibe.yaml`. Git is the recovery mechanism; do not create backup-directory clutter.
+
+### 4.6 Supported Migration Index
+
+**Schema 1 -> 2 (pre-versioning harness adoption):** Schema 1 is the implicit layout used before `.agents/kuvibe.yaml` existed. Preserve all existing project/context/docs/note content. Add the state file. Convert an unmodified generated `AGENTS.md` router to the managed block format; otherwise preserve its content and add or merge only the bounded router block. Add current template metadata to unmodified workflows; treat customized or uncertain workflows as mixed and merge current requirements without replacing their rules. Ensure requirement routing performs the version check before normal work. Validate all required harness files, managed-block boundaries, readable project context, valid state values, and unchanged historical notes/project documentation. Only then record the schema-1-to-2 migration note and set schema `2` and release `0.2.0`.
 
 ## 5. Greenfield Bootstrap
 
@@ -138,7 +217,7 @@ Before completion, explicitly evaluate impact on business rules, workflows, data
 
 ## 29. Engineering Notes
 
-Write meaningful history to `.agents/notes/implemented/YYYYMMDD-HHmm-TYPE-SLUG.md` using developer-local time and an ISO timestamp inside. Include problem, context, decision, alternatives, constraints, implementation, verification, docs, consequences, and follow-ups. Do not write notes for mere typos/formatting or trivial patches. Consolidate completed active artifacts into one note and remove their directory.
+Write meaningful history to `.agents/notes/implemented/YYYYMMDD-HHmm-TYPE-SLUG.md` using developer-local time and an ISO timestamp inside. Include problem, context, decision, alternatives, constraints, implementation, verification, docs, consequences, and follow-ups. Do not write notes for mere typos/formatting or trivial patches. Consolidate completed active artifacts into one note and remove their directory. Upgrade notes use type `migration` or `refresh`; never rewrite historical note bodies during an upgrade.
 
 ## 30. Completion Gate
 
@@ -150,7 +229,7 @@ For changes to system boundaries, module ownership, public contracts, persistenc
 
 ## 32. Maintenance and Refresh
 
-Update context only when durable facts change. Correct stale context discovered during work. Do not re-bootstrap or overwrite project-specific knowledge. Periodically validate links, note naming, required context, tools output, and eval coverage.
+Perform the version check before normal maintenance. Update context only when durable facts change. Correct stale context discovered during work. Do not re-bootstrap or overwrite project-specific knowledge. Periodically validate version state, managed boundaries, links, note naming, required context, tools output, and eval coverage.
 
 ## 33. Failure and Graceful Degradation
 
@@ -160,6 +239,7 @@ If optional tooling, package downloads, networking, subagents, skills, or docume
 
 ```text
 Requirement understood          ✓
+Version state / upgrade         ✓ / N/A
 Blocking questions resolved     ✓
 Implementation                  ✓
 Tests and acceptance            ✓

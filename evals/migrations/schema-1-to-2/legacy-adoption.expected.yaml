@@ -1,0 +1,16 @@
+mode: legacy_adoption
+from_schema: 1
+to_schema: 2
+must:
+  - detect_existing_harness
+  - preserve_project_context
+  - preserve_project_docs
+  - preserve_historical_notes
+  - add_version_state_after_validation
+  - add_or_merge_managed_router_block
+  - record_migration_note
+must_not:
+  - enter_bootstrap
+  - regenerate_project_knowledge
+  - delete_unknown_files
+  - advance_schema_before_validation

@@ -1,8 +1,7 @@
 # 初始化
 
-初始化检测会查找 `AGENTS.md`、`.agents/project.md` 和 `.agents/context/stack.md`。缺少上下文时触发初始化；上下文已经建立时则进入维护流程。
+初始化前先比较 `kuVibe.md` 与 `.agents/kuvibe.yaml` 的版本状态，并检查 `AGENTS.md`、`.agents/project.md` 和 `.agents/context/stack.md` 等旧 Harness 标记。只有状态与旧标记都不存在时才触发初始化；没有状态但已有标记时进入 Legacy Adoption，不能重新生成项目知识。
 
 全新项目会规范化需求，并一次性确定技术方案。现有项目会使用轻量的仓库证据——清单、锁文件、配置和根目录结构，最后才是经过选择的源文件——来确认事实，而不会建议替换技术栈。
 
 可选的检测工具可以提高判断可信度，但没有这些工具也绝不会阻塞初始化。
-

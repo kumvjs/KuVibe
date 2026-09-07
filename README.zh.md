@@ -20,11 +20,14 @@ KuVibe 是一个面向 Vibe Coding、以文件为先的软件工程协议。用�
 
 初始化完成后，像平常一样描述需求即可。生成的 `AGENTS.md` 会让后续工作自动遵循既定的项目上下文和工作流。使用 KuVibe 不需要安装任何软件，也不要求了解 CLI。
 
+已经使用旧版 KuVibe 的项目只需替换 `kuVibe.md`。智能体会识别旧 Harness，按 Project Schema 安全迁移，并保留项目上下文、业务文档、自定义规则和历史 notes；不会因为旧项目缺少版本状态就重新初始化。详见[版本与安全升级](./docs/zh/product/versioning.md)。
+
 ## 仓库结构
 
 - `kuVibe.md`：可复用的智能体引导规范，也是项目的核心产品
 - `.agents/`：KuVibe 自身的项目上下文、工作流和工程记忆
 - `templates/`：可复用的输出模板
+- `migrations/`：连续、可验证的 Project Schema 迁移规范
 - `evals/`：智能体行为评估用例
 - `packages/cli/`：可选的确定性仓库工具
 - `docs/`：VitePress 文档源文件

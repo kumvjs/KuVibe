@@ -1,0 +1,10 @@
+mode: migration_failure
+must:
+  - stop_at_failed_step
+  - report_completed_steps
+  - report_pending_steps
+  - preserve_last_valid_schema
+must_not:
+  - claim_migration_complete
+  - record_schema_2
+  - continue_to_later_migrations

@@ -1,7 +1,7 @@
 # Lifecycle
 
 ```text
-Intent -> context retrieval -> completeness -> clarification if material
+Intent -> version check / safe upgrade -> context retrieval -> completeness -> clarification if material
        -> scope/risk/complexity -> relevant perspectives -> acceptance
        -> plan -> implementation -> verification/review
        -> living docs -> engineering note

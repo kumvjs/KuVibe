@@ -1,0 +1,11 @@
+kuvibe:
+  version: 0.2.0
+  schema: 2
+templates:
+  agents-router: 1
+  requirement-workflow: 1
+  development-workflow: 1
+  review-workflow: 1
+  documentation-workflow: 1
+initializedAt: 2026-09-06T22:24:31+08:00
+lastUpdatedAt: 2026-09-07T12:03:59+08:00

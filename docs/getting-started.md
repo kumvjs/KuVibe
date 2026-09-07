@@ -32,5 +32,9 @@ Add dark mode to the settings page and remember the user's choice.
 The generated `AGENTS.md` routes future work through the project's context, acceptance criteria, verification, and engineering memory. You only need to keep describing requirements.
 
 ::: tip How do I know initialization is complete?
-The project root should contain `AGENTS.md`, `.agents/project.md`, and `.agents/context/stack.md`. These files preserve the durable context needed for future work.
+The project root should contain `AGENTS.md`, `.agents/kuvibe.yaml`, `.agents/project.md`, and `.agents/context/stack.md`. These files preserve version state and the durable context needed for future work.
 :::
+
+## Upgrade a project already using KuVibe
+
+Replace the root `kuVibe.md` with the latest version and ask the agent to read it. Even if an older project has no `.agents/kuvibe.yaml`, existing harness evidence selects conservative adoption instead of reinitialization. Structural changes migrate one schema at a time; changes within the same schema refresh only managed content. See [Versions and Safe Upgrades](./product/versioning.md).

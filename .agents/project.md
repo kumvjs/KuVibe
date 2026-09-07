@@ -27,6 +27,7 @@ Node.js 24 LTS, strict TypeScript, pnpm workspace, Markdown and VitePress, npm d
 ## Modules
 
 - Bootstrap and project-context generation
+- Protocol versioning, legacy adoption, refresh, and schema migration
 - Requirement analysis and clarification
 - Complexity routing and engineering workflow
 - Living documentation and engineering notes

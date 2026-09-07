@@ -1,3 +1,10 @@
+<!--
+kuvibe:
+  template: architecture-context
+  revision: 1
+  ownership: mixed
+-->
+
 # Architecture
 
 ## System Boundary
@@ -12,7 +19,7 @@ The protocol remains useful when Node.js, pnpm, the network, or the utility is u
 ## Module Relationships
 
 ```text
-Natural-language intent -> kuVibe.md -> project context/workflow -> implementation
+Natural-language intent -> kuVibe.md -> version state / migration -> project context/workflow -> implementation
                                       -> docs (current truth)
                                       -> notes (decision history)
 
@@ -27,6 +34,8 @@ The CLI resolves a user-supplied root, performs bounded metadata scans, invokes 
 ## Key Decisions
 
 - Protocol files are the product; tooling is an enhancement.
+- Protocol SemVer, project schema, and template revisions evolve independently; schema drives migration.
+- Project-owned knowledge is preserved, and unknown customization is treated as mixed ownership.
 - Detectors are evidence collectors, not recommendation engines.
 - Result schemas use simple JSON-compatible data.
 - No plugin or framework registry is required for normal use.

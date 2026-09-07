@@ -17,7 +17,8 @@ const chineseThemeConfig = {
       items: [
         { text: '理念', link: '/product/philosophy' },
         { text: '用户体验', link: '/product/user-experience' },
-        { text: '生命周期', link: '/product/lifecycle' }
+        { text: '生命周期', link: '/product/lifecycle' },
+        { text: '版本与升级', link: '/product/versioning' }
       ]
     },
     {
@@ -89,7 +90,8 @@ const englishThemeConfig = {
       items: [
         { text: 'Philosophy', link: '/en/product/philosophy' },
         { text: 'User Experience', link: '/en/product/user-experience' },
-        { text: 'Lifecycle', link: '/en/product/lifecycle' }
+        { text: 'Lifecycle', link: '/en/product/lifecycle' },
+        { text: 'Versions and upgrades', link: '/en/product/versioning' }
       ]
     },
     {
